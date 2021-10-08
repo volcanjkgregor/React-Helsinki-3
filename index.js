@@ -89,10 +89,9 @@ app.delete('/api/notes/:id', (request, response) => {
 	response.status(204).end();
 });
 
-app.put('/api/notes/:id', (request,response) => {
-	const id = Number(request.params.id)
-	
-})
+app.put('/api/notes/:id', (request, response) => {
+	const id = Number(request.params.id);
+});
 
 const unknownEndpoint = (request, response) => {
 	response.status(404).send({ error: 'unknown endpoint' });
@@ -100,7 +99,7 @@ const unknownEndpoint = (request, response) => {
 
 app.use(unknownEndpoint);
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
 	console.log(`Server running on port ${PORT}`);
 });
